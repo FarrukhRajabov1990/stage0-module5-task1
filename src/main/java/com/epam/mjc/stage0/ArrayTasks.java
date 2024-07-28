@@ -130,44 +130,46 @@ public class ArrayTasks {
     public int[][] sortRaggedArray(int[][] arr) {
 
         int counter = 0;
-        int min;
-        int index;
         int[] temp;
-
+        int tempIndex = 0;
+        int min = arr[counter].length;
         for (int i = 0; i < arr.length; i++) {
-            min = arr[counter].length;
-            index = counter;
-            for (int j = counter + 1; j < arr.length; j++) {
+            for (int j = counter; j < arr.length; j++) {
                 if (arr[j].length < min) {
                     min = arr[j].length;
-                    index = j;
+                    tempIndex = j;
                 }
             }
-            temp = arr[index];
-            arr[index] = arr[counter];
+            temp = arr[tempIndex];
+            arr[tempIndex] = arr[counter];
             arr[counter] = temp;
             counter++;
+            if (counter == arr.length) {
+                break;
+            }
         }
-        counter = 0;
-        int tempNumber;
 
+        int tempValue;
         for (int i = 0; i < arr.length; i++) {
-            for (int j = 0; j < arr[i].length; j++) {
-                min = arr[i][counter];
-                index = counter;
+            counter = 0;
+            tempIndex = 0;
+            min = arr[i][tempIndex];
+            for (int j = counter; j < arr[i].length; j++) {
                 for (int k = counter; k < arr[i].length; k++) {
                     if (arr[i][k] < min) {
                         min = arr[i][k];
-                        index = k;
+                        tempIndex = k;
                     }
                 }
-                tempNumber = arr[i][index];
-                arr[i][index] = arr[i][counter];
-                arr[i][counter] = tempNumber;
+                tempValue = arr[i][tempIndex];
+                arr[i][tempIndex] = arr[i][counter];
+                arr[i][counter] = tempValue;
                 counter++;
+                if (counter == arr[i].length) {
+                    break;
+                }
             }
         }
-
         return arr;
     }
 }
