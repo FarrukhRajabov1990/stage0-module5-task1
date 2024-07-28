@@ -132,8 +132,9 @@ public class ArrayTasks {
         int counter = 0;
         int[] temp;
         int tempIndex = 0;
-        int min = arr[counter].length;
+        int min;
         for (int i = 0; i < arr.length; i++) {
+            min = arr[counter].length;
             for (int j = counter; j < arr.length; j++) {
                 if (arr[j].length < min) {
                     min = arr[j].length;
@@ -150,11 +151,13 @@ public class ArrayTasks {
         }
 
         int tempValue;
+
         for (int i = 0; i < arr.length; i++) {
             counter = 0;
-            tempIndex = 0;
-            min = arr[i][tempIndex];
+
             for (int j = counter; j < arr[i].length; j++) {
+                min = arr[i][counter];
+                tempIndex = counter;
                 for (int k = counter; k < arr[i].length; k++) {
                     if (arr[i][k] < min) {
                         min = arr[i][k];
