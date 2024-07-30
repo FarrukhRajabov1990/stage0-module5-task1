@@ -135,6 +135,7 @@ public class ArrayTasks {
         int min;
         for (int i = 0; i < arr.length; i++) {
             min = arr[counter].length;
+            tempIndex = counter;
             for (int j = counter; j < arr.length; j++) {
                 if (arr[j].length < min) {
                     min = arr[j].length;
